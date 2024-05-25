@@ -1,0 +1,37 @@
+.start-screen {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        height: 100px;
+        margin-bottom: 32px;
+    }
+}
+
+.logo {
+    height: auto !important;
+    width: 300px;
+}
+
+.start-btn {
+    height: 120px !important;
+    margin-top: 32px;
+    cursor: pointer;
+    &:hover {
+        transition: linear 125ms ease-in-out;
+        transform: scale(1.05);
+        filter: brightness(1.25);
+    }
+
+}
