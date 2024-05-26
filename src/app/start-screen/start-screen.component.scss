@@ -14,19 +14,27 @@
     }
 
     img {
-        height: 100px;
-        margin-bottom: 32px;
+        padding: 22px;
     }
 }
 
+.title {
+    width: 60vw;
+    min-width: 300px;
+    max-width: 700px;
+}
+
+
 .logo {
-    height: auto !important;
-    width: 300px;
+    width: 40vw;
+    min-width: 150px;
+    max-width: 300px;
 }
 
 .start-btn {
-    height: 120px !important;
-    margin-top: 32px;
+    width: 40vw;
+    min-width: 200px;
+    max-width: 300px;
     cursor: pointer;
     &:hover {
         transition: linear 125ms ease-in-out;
