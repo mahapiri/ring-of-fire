@@ -57,6 +57,7 @@ export class GameComponent implements OnInit {
     }, 1000)
   }
 
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
