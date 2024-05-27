@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     div {
         display: flex;
         flex-direction: column;
@@ -36,6 +36,7 @@
     min-width: 200px;
     max-width: 300px;
     cursor: pointer;
+
     &:hover {
         transition: linear 125ms ease-in-out;
         transform: scale(1.05);
