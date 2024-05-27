@@ -5,6 +5,9 @@
         <img class="front-card" style="right: 153px" (click)="takeCard()" src="assets/img/cards/card_cover.png"
             alt="Card Cover">
         <img class="pick-card card" style="right: 153px" (click)="takeCard()" *ngIf="pickCardAnimation"
-            src="assets/img/cards/clubs_2.png" alt="Card Cover">
+            src="assets/img/cards/{{ currentCard }}.png" alt="Card Cover">
+        <img *ngFor="let card of game.playedCards; let i = index" class="played-cards card" src="assets/img/cards/{{ card }}.png" alt="Played Cards">
+        <img class="pick-card card" style="right: 153px" (click)="takeCard()" *ngIf="pickCardAnimation"
+        src="assets/img/cards/{{ currentCard }}.png" alt="Card Cover">
     </div>
 </section>

@@ -12,7 +12,6 @@ section {
 }
 
 .card {
-    box-shadow: 0px 0px 11px -1px black;
     filter: brightness(0.9);
 }
 
@@ -35,6 +34,11 @@ section {
         transform: scale(1.05) translateY(-10px);
         transition: all 125ms ease-in-out;
     }
+}
+
+.played-cards {
+    right: 153px;
+    transform: scale(1) translateX(352px) translateY(11px) rotate(-5deg);
 }
 
 .pick-card {
