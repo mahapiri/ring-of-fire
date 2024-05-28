@@ -65,20 +65,25 @@ section {
 }
 
 .bar-position {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    transform: scale(0.4);
+    position: absolute;
+    right: 16px;
 }
 
 app-player {
-    transform: scale(0.6);
     position: absolute;
-    bottom: 0;
-    left: 16px;
+    right: 0;
 }
 
 .btn-add {
     position: absolute;
     bottom: 32px;
     right: 32px;
+}
+
+app-game-info {
+    position: absolute;
+    bottom: 32px;
+    left: 100px;
+    right: 120px;
 }
