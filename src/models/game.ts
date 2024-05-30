@@ -7,6 +7,16 @@ export class Game {
 
     constructor() {
         this.generateStack();
+        this.toJson();
+    }
+
+    public toJson() {
+        return {
+            players: this.players,
+            stack: this.stack,
+            playedCards: this.playedCards,
+            currenPlayer: this.currenPlayer
+        };
     }
 
 

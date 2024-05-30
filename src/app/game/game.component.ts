@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Game } from '../../models/game';
 import { PlayerComponent } from '../player/player.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,6 +8,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { GameInfoComponent } from '../game-info/game-info.component';
+import { Firestore, collection, collectionData, setDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { addDoc, doc, getDoc } from "firebase/firestore";
+import { updateDoc } from "firebase/firestore";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -21,9 +26,17 @@ export class GameComponent implements OnInit {
   pickCardAnimation = false;
   currentCard: any;
   game!: Game;
+  firestore: Firestore = inject(Firestore);
+  items$: Observable<any[]>;
+  gamesCollection;
 
-  constructor(public dialog: MatDialog) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog) {
+    this.gamesCollection = collection(this.firestore, 'games');
+    this.items$ = collectionData(this.gamesCollection);
 
+    this.items$.subscribe(data => {
+      console.log('Game update: ', data);
+    })
   }
 
   /**
@@ -31,6 +44,11 @@ export class GameComponent implements OnInit {
    */
   ngOnInit(): void {
     this.newGame();
+    this.route.params.subscribe((params) => {
+      let id = params['id'];
+      console.log(id);
+      this.addGame(id);
+    });
   }
 
 
@@ -39,6 +57,13 @@ export class GameComponent implements OnInit {
    */
   newGame() {
     this.game = new Game();
+  }
+
+  /**
+   * add Game to Firebase
+   */
+  addGame(id: string) {
+    addDoc(this.gamesCollection, this.game.toJson());
   }
 
 
