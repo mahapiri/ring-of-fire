@@ -1,17 +1,23 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { Router } from '@angular/router'
+import { getFirestore, Firestore, collection, collectionData, setDoc, doc, addDoc, getDoc, onSnapshot } from '@angular/fire/firestore';
+import { Game } from '../../models/game';
+import { GameComponent } from '../game/game.component';
+
 
 @Component({
   selector: 'app-start-screen',
   standalone: true,
-  imports: [],
+  imports: [GameComponent],
   templateUrl: './start-screen.component.html',
   styleUrl: './start-screen.component.scss'
 })
 export class StartScreenComponent {
+  gamesRef;
+  firestore: Firestore = inject(Firestore);
 
   constructor(private router: Router) {
-
+    this.gamesRef = collection(this.firestore, 'games');
   }
 
 
@@ -19,8 +25,18 @@ export class StartScreenComponent {
    * navigate to the playfield
    */
   newGame() {
-    //start Game
-    this.router.navigateByUrl('/game');
+    this.addGame();
+  }
+
+
+  /**
+   * add Game to Firebase
+   */
+  addGame() {
+    let game = new Game();
+    addDoc(this.gamesRef, game.toJson()).then((gameInfo: any) => {
+      this.router.navigateByUrl('/game/' + gameInfo.id);
+    });
   }
 
 }
