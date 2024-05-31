@@ -47,7 +47,7 @@ export class GameComponent implements OnInit {
   getGameWithId(id: string) {
     onSnapshot(doc(this.firestore, 'games', id), (doc: any) => {
       let game = doc.data();
-      this.game.currentPlayer = game.currenPlayer;
+      this.game.currentPlayer = game.currentPlayer;
       this.game.playedCards = game.playedCards;
       this.game.players = game.players;
       this.game.stack = game.stack;
