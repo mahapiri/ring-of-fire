@@ -2,7 +2,7 @@ export class Game {
     public players: string[] = [];
     public stack: string[] = [];
     public playedCards: string[] = [];
-    public currenPlayer: number = 0;
+    public currentPlayer: number = 0;
     public currentCard: string = '';
     pickCardAnimation: boolean = false;
 
@@ -17,7 +17,7 @@ export class Game {
             players: this.players,
             stack: this.stack,
             playedCards: this.playedCards,
-            currenPlayer: this.currenPlayer,
+            currenPlayer: this.currentPlayer,
             currentCard: this.currentCard,
             pickCardAnimation: this.pickCardAnimation
         };

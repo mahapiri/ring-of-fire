@@ -1,6 +1,6 @@
 <div class="bar-position">
     <app-player *ngFor="let player of game.players; let i = index;" [ngStyle]="{'top.px': 22 + (i * 155)}"
-        [playerActive]="i == game.currenPlayer" [name]="player"></app-player>
+        [playerActive]="i == game.currentPlayer" [name]="player"></app-player>
 </div>
 <section>
     <div class="card-stack">
