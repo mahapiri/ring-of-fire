@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core'
 import { Router } from '@angular/router'
-import { getFirestore, Firestore, collection, collectionData, setDoc, doc, addDoc, getDoc, onSnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Game } from '../../models/game';
 import { GameComponent } from '../game/game.component';
 
